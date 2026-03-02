@@ -25,31 +25,88 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.ambient-light {
+.edge-light {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 60vw;
-    max-width: 800px;
-    max-height: 800px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(5, 5, 5, 0) 65%);
-    filter: blur(70px);
     z-index: 1;
     pointer-events: none;
-    animation: pulse 6s ease-in-out infinite alternate;
 }
 
-@keyframes pulse {
+.edge-light--left {
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background: radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+    animation: edge-pulse-left 7s ease-in-out infinite alternate;
+}
+
+.edge-light--right {
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    background: radial-gradient(ellipse at 100% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+    animation: edge-pulse-right 7s ease-in-out infinite alternate;
+    animation-delay: 1.5s;
+}
+
+.edge-light--top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    animation: edge-pulse-top 8s ease-in-out infinite alternate;
+    animation-delay: 0.5s;
+}
+
+.edge-light--bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    animation: edge-pulse-bottom 8s ease-in-out infinite alternate;
+    animation-delay: 2s;
+}
+
+@keyframes edge-pulse-left {
     0% {
-        opacity: 0.6;
-        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.4;
     }
 
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes edge-pulse-right {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes edge-pulse-top {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes edge-pulse-bottom {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.9;
     }
 }
 
@@ -73,32 +130,13 @@ body {
 }
 
 .logo-wrapper .main-logo {
-    max-width: 250px;
-    width: 250px;
-    /* Explicit width prevents SVG collapsing */
+    width: 220px;
     height: auto;
-    filter:
-        drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.2));
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease;
-    animation: pulsate-logo 4s infinite alternate ease-in-out;
-}
-
-@keyframes pulsate-logo {
-    0% {
-        filter:
-            drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.2));
-    }
-
-    100% {
-        filter:
-            drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 70px rgba(255, 255, 255, 0.4));
-    }
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .logo-wrapper .main-logo:hover {
     transform: scale(1.05);
-    filter:
-        drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 45px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 90px rgba(255, 255, 255, 0.5));
 }
 
 .countdown-container {
@@ -220,7 +258,7 @@ body {
     }
 
     .logo-wrapper .main-logo {
-        max-width: 200px;
+        width: 180px;
     }
 }
 
@@ -255,6 +293,6 @@ body {
     }
 
     .logo-wrapper .main-logo {
-        max-width: 150px;
+        width: 130px;
     }
 }
