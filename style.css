@@ -130,17 +130,13 @@ body {
 }
 
 .logo-wrapper .main-logo {
-    max-width: 250px;
-    width: 250px;
-    /* Explicit width prevents SVG collapsing */
+    width: 220px;
     height: auto;
-    filter: none;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .logo-wrapper .main-logo:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
 .countdown-container {
@@ -262,7 +258,7 @@ body {
     }
 
     .logo-wrapper .main-logo {
-        max-width: 200px;
+        width: 180px;
     }
 }
 
@@ -297,6 +293,6 @@ body {
     }
 
     .logo-wrapper .main-logo {
-        max-width: 150px;
+        width: 130px;
     }
 }
